@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/home_fragment"
+
+    >
+
+
+    <fragment android:id="@+id/home_fragment"
+        android:name="com.example.myapplication.HomeFragment"
+        android:label="@string/hello_blank_fragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/home_fragment_to_mySecondFragment"
+            app:destination="@id/second_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
+    </fragment>
+
+
+    <fragment android:id="@+id/second_fragment"
+        android:name="com.example.myapplication.SecondFragment"
+        android:label="@string/hello_blank_fragment2"
+        tools:layout="@layout/fragment_second">
+
+        <argument
+            android:name="args"
+            app:argType="integer"
+            android:defaultValue="2"/>
+<!--        <argument android:name="arg3"-->
+<!--            app:argType=""-->
+
+    <action
+        android:id="@+id/mySecondFragment_thirdFragment"
+        app:destination="@id/third_fragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+    </fragment>
+
+    <fragment android:id="@+id/third_fragment"
+        android:name="com.example.myapplication.ThirdFragment"
+        android:label="@string/hello_blank_fragment3"
+        tools:layout="@layout/fragment_third">
+    <action
+        android:id="@+id/myThirdFragment_HomeFragment"
+        app:destination="@id/home_fragment"
+        app:popUpTo="@id/home_fragment"/>
+
+        <action
+            android:id="@+id/myThirdFragment_toSecondFragment"
+            app:popUpTo="@id/second_fragment"/>
+
+
+</fragment>
+</navigation>
+
